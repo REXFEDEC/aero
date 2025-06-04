@@ -275,6 +275,72 @@ header p {
     }
 }
 
+.showcase-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    padding: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.video-wrapper {
+    width: 100%;
+    position: relative;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    overflow: hidden;
+    border-radius: 0.5rem;
+}
+
+.video-wrapper video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.showcase-description {
+    text-align: center;
+}
+
+.social-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-family: 'Fira Code', monospace;
+    transition: color 0.3s ease;
+}
+
+.social-link:hover {
+    color: var(--hover-color);
+}
+
+@media (min-width: 768px) {
+    .showcase-container {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .video-wrapper {
+        flex: 1;
+        padding-top: 28.125%; /* Maintaining 16:9 at half width */
+    }
+
+    .showcase-description {
+        flex: 1;
+        text-align: left;
+        padding-left: 2rem;
+    }
+}
+
 @media (max-width: 768px) {
     h1 {
         font-size: 2.5rem;
