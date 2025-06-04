@@ -1,0 +1,291 @@
+:root {
+    --bg-color: #0f172a;
+    --text-color: #e2e8f0;
+    --accent-color: #60a5fa;
+    --card-bg: #1e293b;
+    --hover-color: #38bdf8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    background-image: url('../img/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: var(--text-color);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    position: relative;
+}
+
+/* Add this after body to create an overlay */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 23, 42, 0.85); /* Using your bg-color with opacity */
+    z-index: -1; /* Keep this between snowfall and content */
+}
+
+/* Update navigation style */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+}
+
+.nav-logo {
+    font-family: 'Fira Code', monospace;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin-left: 2rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--hover-color);
+}
+
+header {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    font-family: 'Fira Code', monospace;
+}
+
+section {
+    padding: 5rem 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    font-family: 'Fira Code', monospace;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Update project cards */
+.project-card,
+.upcoming-project-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+.project-card:hover,
+.upcoming-project-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.project-card img,
+.upcoming-project-card img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto 1rem auto;
+    display: block;
+    border: 2px solid var(--accent-color);
+    padding: 5px;
+    background: var(--card-bg);
+}
+
+.project-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-family: 'Fira Code', monospace;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-family: 'Fira Code', monospace;
+    transition: color 0.3s ease;
+}
+
+.project-link:hover {
+    color: var(--hover-color);
+}
+
+#about {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    font-family: 'Fira Code', monospace;
+}
+
+/* Add new section for upcoming projects */
+.upcoming-project-card {
+    background: var(--card-bg);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    opacity: 0.8;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.upcoming-project-card:hover {
+    transform: translateY(-5px);
+}
+
+.upcoming-project-card::before {
+    content: "Coming Soon";
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.3rem 0.8rem;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    font-family: 'Fira Code', monospace;
+}
+
+.project-emoji {
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.profile-pic {
+    margin-bottom: 2rem;
+}
+
+.profile-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 3px solid var(--accent-color);
+    padding: 5px;
+    background: var(--card-bg);
+    transition: transform 0.3s ease;
+    background-image: url('../img/me.png');
+    background-size: cover;
+    background-position: center;
+    pointer-events: none;
+}
+
+.profile-img:hover {
+    transform: scale(1.05);
+}
+
+/* Add after the header styles */
+.profile-pic, 
+.header-text {
+    transition: filter 0.3s ease;
+    will-change: filter;
+}
+
+header h1,
+header p {
+    transition: filter 0.3s ease;
+    will-change: filter;
+}
+
+.snowfall {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -2; /* Changed from 1 to -2 to appear behind the overlay */
+}
+
+.snowflake {
+    position: fixed;
+    top: -10px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    pointer-events: none;
+    animation: snowfall linear infinite;
+}
+
+@keyframes snowfall {
+    0% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    nav {
+        padding: 1rem;
+    }
+    
+    .nav-links a {
+        margin-left: 1rem;
+        font-size: 0.9rem;
+    }
+}
